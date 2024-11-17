@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einladung für {{ invitation.firstname }}</title>
+    <meta name="description" content="Einladung Geburtstag">
+    <link href="{{ url_for('static', filename='css/' + 'invitations.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+</head>
+<body>
+    <div class="container">
+    
+        <div class="firstpage">
+            <div class="cake_body">
+                <div class="birthday-cake">
+                    <div class="holder"></div>
+                        <div class="shadow"></div>
+                            <div class="cake">
+                            <div class="chocolate"></div>
+                        </div>
+                        <div class="candle"></div>
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="secondpage">
+            {% if invitation %}
+            <center>
+                <h1><b>Einladung für {{ invitation.firstname }}</h1>
+                <div class="invitation-details">
+                    <p>Ich lade dich ganz herzlich zu meiner Geburtstagsfeier ein.</p>
+                    <p><i class='bx bx-calendar'></i> {{ invitation.event_date }}</p>
+                    <p><i class='bx bxs-time-five'></i> {{ invitation.event_time }}</p>
+                    <p><i class='bx bx-map'></i> {{ invitation.address }}</p>
+                    <p><a href="{{ invitation.google_maps_link }}" target="_blank">Karte ansehen</a></p>
+                </div>
+            {% else %}
+                <p>Es wurde keine Einladung mit dieser ID gefunden.</p>
+            {% endif %}
+        </center>
+        </div>
+    </div>
+</body>
+</html>

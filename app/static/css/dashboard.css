@@ -1,0 +1,138 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    height: 100%;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4a90e2;
+    margin: 20px 0;
+}
+
+/* Form styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+/* Flash messages */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    background: #4caf50;
+    color: white;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+/* Table styles */
+table {
+    width: 95%; 
+    max-width: none; /* Prevent table from being too wide */
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background: #4a90e2;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    word-wrap: break-word; /* Ensure text doesn't overflow */
+}
+
+td a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+    table {
+        width: auto; /* Table width will shrink to fit the content */
+    }
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block; 
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+/* Logout link */
+a[href="/logout"] {
+    display: block;
+    text-align: center;
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+a[href="/logout"]:hover {
+    text-decoration: underline;
+}

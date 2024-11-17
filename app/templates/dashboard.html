@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Create Invitation</title>
+    <link href="{{ url_for('static', filename='css/' + 'dashboard.css') }}" rel="stylesheet">
+    <style>
+        #flash-container {
+            display: flex; /* Use Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically (if there's height) */
+            width: 100%; /* Take full width of the body */
+            max-width: 400px; /* Match the form's width */
+            margin: 15px auto; /* Center the container and add spacing */
+        }
+        .flash-message {
+            background-color: #721d16; /* Dark red background */
+            border: 1px solid #8b322a; /* Border matching background tone */
+            color: #ffffff; /* White text */
+            padding: 10px 20px; /* Added padding for better spacing */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center-align the text */
+            animation: fadeOut 5s forwards; /* Fades out after 5 seconds */
+            width: fit-content; /* Adjust width to content */
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Invitation</h1>
+
+    <!-- Form for creating a new invitation -->
+    <form method="POST" action="{{ url_for('dashboard.dashboard_home') }}">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        <br><br>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname">
+        <br><br>
+
+        <label for="event_date">Event Date:</label>
+        <input type="date" id="event_date" name="event_date" required>
+        <br><br>
+
+        <label for="event_time">Event Time:</label>
+        <input type="time" id="event_time" name="event_time" required>
+        <br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        <br><br>
+
+        <label for="google_maps_link">Google Maps Link:</label>
+        <input type="url" id="google_maps_link" name="google_maps_link">
+        <br><br>
+
+        <button type="submit">Create Invitation</button>
+    </form>
+
+    <!-- Display a success message if the form submission was successful -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div id="flash-container">
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Table for listing all invitations -->
+    <h2>All Invitations</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Event Date</th>
+                <th>Event Time</th>
+                <th>Address</th>
+                <th>Google Maps Link</th>
+                <th>Link ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invitation in invitations %}
+                <tr>
+                    <td>{{ invitation.firstname }}</td>
+                    <td>{{ invitation.lastname }}</td>
+                    <td>{{ invitation.event_date }}</td>
+                    <td>{{ invitation.event_time }}</td>
+                    <td>{{ invitation.address }}</td>
+                    <td>
+                        {% if invitation.google_maps_link %}
+                            <a href="{{ invitation.google_maps_link }}" target="_blank">View Map</a>
+                        {% else %}
+                            No link
+                        {% endif %}
+                    </td>
+                    <td>{{ invitation.link_id }}</td>
+                    <td>
+                        <form action="{{ url_for('dashboard.delete_invitation', id=invitation.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this invitation?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br/><a href="/logout">Logout</a>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='js/' + 'flash_messages.js') }}"
+    ></script>
+</body>
+</html>
