@@ -50,6 +50,7 @@ Follow these steps to get started:
    ```bash
    cd ..
    docker-compose up -d --build
+8. 💻 Visit the app at ``your_domain_or_ip_adress:2683``
 
 ### Language
 
@@ -81,7 +82,7 @@ Credits to: [https://codepen.io/euro__bby/pen/ExBwNNN](https://codepen.io/euro__
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/AAWA-byt/Birthday-Invitations/License) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/AAWA-byt/Birthday-Invitations/LICENSE) file for details.
 
 ---
 
