@@ -38,7 +38,7 @@ Follow these steps to get started:
    
    ```bash
    git clone https://github.com/AAWA-byt/Birthday-Invitations
-   cd birthday-invitation-app
+   cd birthday-invitations
 5. ⚙️ Configure the app
    
    ```bash
