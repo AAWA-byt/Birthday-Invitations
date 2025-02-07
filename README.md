@@ -71,10 +71,11 @@ Here are few screenshots of the app:
 ![dashboard_page](https://github.com/user-attachments/assets/c49be8a4-bc21-4b93-9471-b496a2d79be5)
 
 ### Invitation page
+Credits to: [https://codepen.io/euro__bby/pen/ExBwNNN](https://codepen.io/euro__bby/pen/ExBwNNN)
 
 ![firstpage_invitation](https://github.com/user-attachments/assets/93f6b034-f9e2-49bb-b46a-e2708120a848)
 
-Credits to: [https://codepen.io/euro__bby/pen/ExBwNNN](https://codepen.io/euro__bby/pen/ExBwNNN)
+
 
 ![secondpage_invitation](https://github.com/user-attachments/assets/20f2512b-1502-486d-a545-e95b630d981c)
 
